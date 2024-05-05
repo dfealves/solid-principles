@@ -1,8 +1,8 @@
-import AbstractShareButton from "./abstract-share-button";
-
-export default class ShareButtonTwitter extends AbstractShareButton {
-    constructor(className: string, url: string) {
-        super(className, url)
+import AbstractLinkSharedButton from "./Abstract-link-share-button";
+import EventHandler from "./event-handler";
+export default class ShareButtonTwitter extends AbstractLinkSharedButton {
+    constructor(eventHandler: EventHandler,className: string, url: string) {
+        super(eventHandler, className, url)
     }
 
     createLink(): string {

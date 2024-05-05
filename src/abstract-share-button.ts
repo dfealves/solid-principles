@@ -4,16 +4,15 @@ export default abstract class AbstractShareButton {
     eventHandler: EventHandler;
     className: string;
     url: string
-    constructor(classname: string, url: string) {
+    constructor(eventHandler: EventHandler, classname: string) {
         this.className = classname;
-        this.url = url;
-        this.eventHandler = new EventHandler();
+        this.eventHandler = eventHandler; 
     }
 
-    abstract createLink(): string;
+    abstract createAction();
 
     bind() {
-        const link = this.createLink()
-        this.eventHandler.addEventListenerToClass(this.className, 'click', () => window.open(link))
+        const action = this.createAction();
+        this.eventHandler.addEventListenerToClass(this.className, 'click', action)
     }
 }
